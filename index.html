@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <h1>Rock Paper Scissors</h1>
+    <h2>Java Practice</h2>
+  
+  
+  <script>
+
+    function computerPlay(){   
+        const randomNumber = Math.random()
+        
+            if (randomNumber < 0.37){
+                return 'rock'
+            } else if (randomNumber > 0.67) {
+                return 'paper'
+            } else {
+                return 'scissors'
+            }
+    }
+
+    function playRound(playerSelection, computerSelection) {
+
+        if (playerSelection === computerSelection) {
+        
+            return "It's a tie!"
+
+        } else if (playerSelection === 'rock') {
+            switch (computerSelection) {
+            case 0:
+            computerSelection === "paper";
+            return "You lose! Paper beats rock";
+            break;
+            case 1:
+            computerSelection === "scissors";
+            return "You win! Rock beats Scissors"
+             } 
+        } else if (playerSelection === 'paper') {
+            switch (computerSelection) {
+            case 0:
+            computerSelection === 'rock';
+            return "You win! Paper beats Rock";
+            break;
+            case 1:
+            computerSelection === 'scissors';
+            return "You Lose! Scissors beat Paper";
+             } 
+        } else if (playerSelection === 'scissors') {
+                switch (computerSelection) {
+                    case 0:
+                    computerSelection === 'rock';
+                    return "You Lose! Rock beats Scissors";
+                    break;
+                    case 1:
+                    computerSelection === 'paper';
+                    return "You Win! Scissors beat Paper!"
+                 } 
+            }
+    }
+    const playerSelection = 'rock';
+    const computerSelection = computerPlay();
+    console.log(playRound())
+
+  </script>
+</body>
+</html>
