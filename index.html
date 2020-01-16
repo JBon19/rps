@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
 <head>
   <title>Rock Paper Scissors</title>
+  
 </head>
 <body>
     <h1>Rock Paper Scissors</h1>
     <h2>Java Practice</h2>
   
-  
   <script>
+
+    let playerScore = 0;
+    let  computerScore = 0;
 
     function computerPlay(){   
         const randomNumber = Math.random()
@@ -23,13 +27,33 @@
             }
     }
 
-    function playRound() {
+function game() {
+
+    for (i = 0; i < 5; i++) {
+
+        if (playerScore > 4) {
+            playerScore = 0;
+            computerScore = 0;
+      alert("You win the game! You are the supreme ruler.");
+      break;
+      } else if (computerScore > 4) {
+            playerScore = 0;
+            computerScore = 0;
+      alert("You lose! Computers will now kill all humans.");
+      break;
+      }
+      
 
         const input = prompt("Pick a thing");
-        const playerSelection = input;
+        const playerSelection = input.toLowerCase();
         const computerSelection = computerPlay();
-        playerScore = 0;
-        computerScore = 0;
+    
+     
+       
+
+
+
+     if(playerScore < 5 || computerScore < 5) {
 
         if (playerSelection === computerSelection) {
         
@@ -60,7 +84,7 @@
         } else if (playerSelection === 'scissors') {
             switch (computerSelection) {
                     case 'rock':
-                    playerScore++;
+                    computerScore++;
                     return "You Lose! Rock beats Scissors";
                 break;
                     case 'paper':
@@ -71,27 +95,18 @@
             } 
         }
     }
-    
-        function updateScores(result, points) {
-    if(result === 1) {
-      playerScore += points;
-    }
-    if(result === 2) {
-      computerScore += points;
-    }
-    if(result === 0) {
-      computerScore += 0;
-      playerScore += 0;
+
+
+
+    function clearScores() {
+        if (playerScore === 5 || computerScore === 5) {
+
+        let playerScore = 0
+        let computerScore = 0
+        }
     }
 }
-    
-    
-   
-
-
-
-
-
+}
   </script>
 </body>
 </html>
